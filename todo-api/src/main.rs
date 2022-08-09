@@ -47,7 +47,6 @@ async fn root() -> &'static str {
 
 #[cfg(test)]
 mod test {
-    // **point 1**
     use super::*;
     use crate::repositories::{CreateTodo, Todo};
     use axum::response::Response;
@@ -57,7 +56,6 @@ mod test {
     };
     use tower::ServiceExt;
 
-    // **point 2**
     fn build_todo_req_with_json(path: &str, method: Method, json_body: String) -> Request<Body> {
         Request::builder()
             .uri(path)
@@ -75,7 +73,6 @@ mod test {
             .unwrap()
     }
 
-    // **point 3**
     async fn res_to_todo(res: Response) -> Todo {
         let bytes = hyper::body::to_bytes(res.into_body()).await.unwrap();
         let body: String = String::from_utf8(bytes.to_vec()).unwrap();
