@@ -5,7 +5,7 @@ import { Box, Stack, Typography } from '@mui/material'
 import { NewTodoPayload, Todo } from './types/todo'
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
-import { addTodoItem, getTodoItems } from './lib/api/todo'
+import { addTodoItem, getTodoItems, updateTodoItem } from './lib/api/todo'
 
 const TodoApp: FC = () => {
   const [todos, setTodos] = useState<Todo[]>([])
@@ -17,18 +17,11 @@ const TodoApp: FC = () => {
     setTodos(todos)
   }
 
-  const onUpdate = (updateTodo: Todo) => {
-    setTodos(
-      todos.map((todo) => {
-        if (todo.id === updateTodo.id) {
-          return {
-            ...todo,
-            ...updateTodo, // 必要な部分だけoverwride
-          }
-        }
-        return todo
-      })
-    )
+  const onUpdate = async (updateTodo: Todo) => {
+    await updateTodoItem(updateTodo)
+    // APIより再度Todo配列を取得
+    const todos = await getTodoItems()
+    setTodos(todos)
   }
 
   useEffect(() => {
