@@ -39,3 +39,12 @@ export const updateTodoItem = async (todo: Todo) => {
   const json: Todo = await res.json()
   return json
 }
+
+export const deleteTodoItem = async (id: number) => {
+  const res = await fetch(`http://localhost:3000/todos/${id}`, {
+    method: 'DELETE',
+  })
+  if (!res.ok) {
+    throw new Error('delete todo request failed')
+  }
+}
