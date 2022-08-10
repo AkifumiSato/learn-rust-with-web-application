@@ -45,7 +45,6 @@ select * from labels where name = $1
         .fetch_optional(&self.pool)
         .await?;
 
-        // **point 1**
         if let Some(label) = optional_label {
             return Err(RepositoryError::Duplicate(label.id).into());
         }
@@ -119,11 +118,6 @@ mod test {
             .create(label_text.to_string())
             .await
             .expect("[create] returned Err");
-        assert_eq!(label.name, label_text);
-
-        // all
-        let labels = repository.all().await.expect("[all] returned Err");
-        let label = labels.last().unwrap();
         assert_eq!(label.name, label_text);
 
         // delete
