@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  database:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: 'database'
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdate:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: admin
+      POSTGRES_DB: todos
+      TZ: Asia/Tokyo
+    restart: always
+volumes:
+  pgdate:
