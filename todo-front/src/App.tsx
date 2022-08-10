@@ -1,4 +1,4 @@
-import { useEffect, useState, FC } from "react"
+import { useEffect, useState, FC } from 'react'
 import 'modern-css-reset'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import { Box, Stack, Typography } from '@mui/material'
