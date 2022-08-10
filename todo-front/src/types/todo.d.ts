@@ -18,3 +18,10 @@ export type Label = {
 export type NewLabelPayload = {
   name: string
 }
+
+export type UpdateTodoPayload = {
+  id: number
+  text?: string
+  completed?: boolean
+  labels?: number[]
+}
