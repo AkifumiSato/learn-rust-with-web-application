@@ -138,6 +138,7 @@ pub struct UpdateTodo {
 }
 
 #[cfg(test)]
+#[cfg(feature = "database-test")]
 mod test {
     use super::*;
     use dotenv::dotenv;

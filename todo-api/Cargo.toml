@@ -3,6 +3,10 @@ name = "todo-api"
 version = "0.1.0"
 edition = "2021"
 
+[features]
+default = ["database-test"]
+database-test = []
+
 [dependencies]
 axum = "0.4.8"
 hyper = { version = "0.14.16", features = ["full"] }
