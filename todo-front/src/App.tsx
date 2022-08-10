@@ -5,21 +5,14 @@ import { Box, Stack, Typography } from '@mui/material'
 import { NewTodoPayload, Todo } from './types/todo'
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
+import { addTodoItem } from './lib/api/todo'
 
 const TodoApp: FC = () => {
   const [todos, setTodos] = useState<Todo[]>([])
-  const createId = () => todos.length + 1
 
   const onSubmit = async (payload: NewTodoPayload) => {
-    if (!payload.text) return
-    setTodos((prev) => [
-      {
-        id: createId(),
-        text: payload.text,
-        completed: false,
-      },
-      ...prev,
-    ])
+    const newTodo = await addTodoItem(payload)
+    setTodos((prev) => [newTodo, ...prev])
   }
 
    const onUpdate = (updateTodo: Todo) => {
