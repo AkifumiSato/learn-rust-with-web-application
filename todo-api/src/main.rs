@@ -160,7 +160,6 @@ mod test {
             "/todos/1",
             Method::PATCH,
             r#"{
-    "id": 1,
     "text": "should_update_todo",
     "completed": false
 }"#
