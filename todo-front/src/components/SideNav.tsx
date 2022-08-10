@@ -43,7 +43,6 @@ const SideNav: FC<Props> = ({
 
   return (
     <>
-      {/* **point 1** */}
       <List>
         <ListSubheader>Labels</ListSubheader>
         {labels.map((label) => (
@@ -65,7 +64,6 @@ const SideNav: FC<Props> = ({
           <ListItemButton onClick={() => setOpenLabelModal(true)}>
             <Stack direction="row" alignItems="center" spacing={1}>
               <EditIcon fontSize="small" />
-              {/* **point 2** */}
               <span>edit label</span>
             </Stack>
           </ListItemButton>

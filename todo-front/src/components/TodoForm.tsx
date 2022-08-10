@@ -22,7 +22,6 @@ type Prosp = {
 
 const TodoForm: FC<Prosp> = ({ onSubmit, labels }) => {
   const [editText, setEditText] = useState('')
-  // **point 1**
   const [editLabels, seteditLabels] = useState<Label[]>([])
   const [openLabelModal, setOpenLabelModal] = useState(false)
 
@@ -36,7 +35,6 @@ const TodoForm: FC<Prosp> = ({ onSubmit, labels }) => {
     setEditText('')
   }
 
-  // **point 2**
   return (
     <Paper elevation={2}>
       <Box sx={{ p: 2 }}>
