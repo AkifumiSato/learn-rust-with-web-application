@@ -54,8 +54,8 @@ const SideNav: FC<Props> = ({
               }
               selected={label.id === filterLabelId}
             >
-              <Stack direction='row' alignItems='center' spacing={1}>
-                <LabelIcon fontSize='small' />
+              <Stack direction="row" alignItems="center" spacing={1}>
+                <LabelIcon fontSize="small" />
                 <span>{label.name}</span>
               </Stack>
             </ListItemButton>
@@ -63,8 +63,8 @@ const SideNav: FC<Props> = ({
         ))}
         <ListItem disablePadding>
           <ListItemButton onClick={() => setOpenLabelModal(true)}>
-            <Stack direction='row' alignItems='center' spacing={1}>
-              <EditIcon fontSize='small' />
+            <Stack direction="row" alignItems="center" spacing={1}>
+              <EditIcon fontSize="small" />
               {/* **point 2** */}
               <span>edit label</span>
             </Stack>
@@ -75,14 +75,14 @@ const SideNav: FC<Props> = ({
         <Box sx={modalInnerStyle}>
           <Stack spacing={3}>
             <Stack spacing={1}>
-              <Typography variant='subtitle1'>new label</Typography>
+              <Typography variant="subtitle1">new label</Typography>
               <TextField
-                label='new label'
-                variant='filled'
+                label="new label"
+                variant="filled"
                 fullWidth
                 onChange={(e) => setEditName(e.target.value)}
               />
-              <Box textAlign='right'>
+              <Box textAlign="right">
                 <Button onClick={onSubmit}>submit</Button>
               </Box>
             </Stack>
@@ -90,15 +90,15 @@ const SideNav: FC<Props> = ({
               {labels.map((label) => (
                 <Stack
                   key={label.id}
-                  direction='row'
-                  alignItems='center'
+                  direction="row"
+                  alignItems="center"
                   spacing={1}
                 >
                   <IconButton
-                    size='small'
+                    size="small"
                     onClick={() => onDeleteLabel(label.id)}
                   >
-                    <DeleteIcon fontSize='small' />
+                    <DeleteIcon fontSize="small" />
                   </IconButton>
                   <span>{label.name}</span>
                 </Stack>

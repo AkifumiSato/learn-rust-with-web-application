@@ -1,5 +1,5 @@
-import { FC, useState } from "react"
-import { Label, NewTodoPayload } from "../types/todo"
+import { FC, useState } from 'react'
+import { Label, NewTodoPayload } from '../types/todo'
 import {
   Box,
   Button,
@@ -11,9 +11,9 @@ import {
   Modal,
   Grid,
   Chip,
-} from "@mui/material"
-import { modalInnerStyle } from "../styles/modal"
-import { toggleLabels } from "../lib/toggleLabels"
+} from '@mui/material'
+import { modalInnerStyle } from '../styles/modal'
+import { toggleLabels } from '../lib/toggleLabels'
 
 type Prosp = {
   onSubmit: (newTodo: NewTodoPayload) => void
@@ -21,7 +21,7 @@ type Prosp = {
 }
 
 const TodoForm: FC<Prosp> = ({ onSubmit, labels }) => {
-  const [editText, setEditText] = useState("")
+  const [editText, setEditText] = useState('')
   // **point 1**
   const [editLabels, seteditLabels] = useState<Label[]>([])
   const [openLabelModal, setOpenLabelModal] = useState(false)
@@ -33,7 +33,7 @@ const TodoForm: FC<Prosp> = ({ onSubmit, labels }) => {
       text: editText,
       labels: editLabels.map((label) => label.id),
     })
-    setEditText("")
+    setEditText('')
   }
 
   // **point 2**
